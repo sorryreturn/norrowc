@@ -15,6 +15,8 @@ unzip narrowc.zip
 ## Build & run
 
 ```bash
+ gcc -std=c11 -Wall -Wextra -O2 ast_walker.c -o ast_walker \
+       $(python3-config --embed --cflags --ldflags) -lm
 ./ast_walker --check yourscript.py      # check if it's in the supported subset
 ./ast_walker yourscript.py output.c     # compile to C
 gcc -std=c11 -O2 output.c -o output -lm # compile the generated C
